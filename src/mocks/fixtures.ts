@@ -8,7 +8,7 @@ export const DEFAULT_FIXTURE_CONFIG: SessionSettings = {
 
 const names = ['Blackbeard', 'Anne Bonny', 'Calico Jack', 'Morgan', 'Silver'];
 
-export const FIXTURE_MATCHES: MatchRecord[] = names.map((name, index) => ({
+export const FIXTURE_MATCHES: MatchRecord[] = names.map((_name, index) => ({
   matchId: `fixture-${index + 1}`,
   playerId: `fixture-player-${index + 1}`,
   playedAt: new Date(Date.UTC(2026, 8, 1 + index)).toISOString(),

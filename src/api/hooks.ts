@@ -8,7 +8,7 @@ import { historyKey, rankingKey } from './queryClient';
 export function useRanking(config: SessionSettings, page: number, pageSize = 8, enabled = true) {
   const query: RankingQuery = { page, pageSize, config };
   return useQuery({
-    queryKey: rankingKey(config).concat(page, pageSize),
+    queryKey: [...rankingKey(config), page, pageSize],
     queryFn: () => getRanking(query),
     enabled,
     refetchOnMount: 'always',
@@ -18,7 +18,7 @@ export function useRanking(config: SessionSettings, page: number, pageSize = 8, 
 export function useHistory(playerId: string, page: number, pageSize = 8, enabled = true) {
   const query: HistoryQuery = { page, pageSize, playerId };
   return useQuery({
-    queryKey: historyKey(playerId).concat(page, pageSize),
+    queryKey: [...historyKey(playerId), page, pageSize],
     queryFn: () => getHistory(query),
     enabled,
     refetchOnMount: 'always',

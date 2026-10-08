@@ -65,7 +65,7 @@ export function RankingScreen({ tab, settings, onBack, onTab, onRetryPending }: 
             <div className="records" aria-live="polite">
               {query.data.items.map((item) => (
                 <article className="record" key={item.matchId}>
-                  {tab === 'ranking' && 'rank' in item && <span className="record__rank">#{item.rank}</span>}
+                  {tab === 'ranking' && 'rank' in item && <span className="record__rank">#{String(item.rank)}</span>}
                   <div className="record__main">
                     <strong>{item.playerId === playerId ? 'You' : item.playerId}</strong>
                     <span>{item.score} pts · {formatClock(item.durationSec)}</span>
